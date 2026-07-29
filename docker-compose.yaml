@@ -1,12 +1,15 @@
 services:
-    ai_agent:
-      build: .
-      container_name: ai_agent
-      working_dir: /app
-      volumes:
+  ai_agent:
+    build: .
+    container_name: ai_agent
+    working_dir: /app
+    volumes:
       - .:/app
-      env_file:
+      - ai_agent_venv:/app/.venv
+    env_file:
       - .env
-      #equivalentes a it no comando docker run
-      stdin_open: true
-      tty: true
+    stdin_open: true
+    tty: true
+
+volumes:
+  ai_agent_venv:

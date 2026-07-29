@@ -1,0 +1,12 @@
+services:
+    ai_agent:
+      build: .
+      container_name: ai_agent
+      working_dir: /app
+      volumes:
+      - .:/app
+      env_file:
+      - .env
+      #equivalentes a it no comando docker run
+      stdin_open: true
+      tty: true
